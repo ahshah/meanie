@@ -1,0 +1,31 @@
+version: "2"
+services:
+  expressJS:
+    image: "local/meanie:18.02.12"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./src:/home/dop
+    ports:
+        - "192.168.1.3:8080:8080"
+    command: "npm run nodemon"
+    working_dir: "/home/dop"
+    user: dop
+    container_name: "expressJS"
+
+    stdin_open: true
+    tty: true
+
+  mongoDB:
+    image: "local/meanie:18.02.12"
+    volumes:
+        - ./docker/db/data:/db/data
+        - ./docker/db/log:/db/log
+        - ./docker/db/conf/:/db/conf
+    command: "mongod  -f /db/conf/monogd.conf"
+    working_dir: "/home/dop/"
+    container_name: "mongoDB"
+    user: dop
+
+    stdin_open: true
+    tty: true
