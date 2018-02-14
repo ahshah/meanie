@@ -1,0 +1,4 @@
+GET services
+PUT log/<service>/
+GET log/<service>/
+GET log_stats/<service>
