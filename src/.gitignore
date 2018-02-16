@@ -31,3 +31,9 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
+
+# Bash history sometimes gets created when we docker exec into the container
+.bash_history
+
+# Ignore all environment files
+*.env
